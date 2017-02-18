@@ -1,0 +1,19 @@
+{
+  "name": "mpijierro/identity",
+  "description": "Check identity number as NIF, CIF, NIE...",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Manu Pijierro",
+      "email": "mpijierro@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Mpijierro\\": "src/"
+    }
+  }
+}
