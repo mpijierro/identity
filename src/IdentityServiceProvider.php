@@ -4,9 +4,7 @@ namespace MPijierro\Identity;
 
 use Illuminate\Support\ServiceProvider;
 
-;
-
-class ValidatorServiceProvider extends ServiceProvider
+class IdentityServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.

@@ -13,7 +13,7 @@
   "require": {},
   "autoload": {
     "psr-4": {
-      "Mpijierro\\": "src/"
+      "Mpijierro\\Identity\\": "src/"
     }
   }
 }
