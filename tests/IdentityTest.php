@@ -28,12 +28,9 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
 
     public function test_sanitize()
     {
-
         $this->assertEquals('Q6887124C', $this->identity->sanitize('q6887124c'));
         $this->assertEquals('Q6887124C', $this->identity->sanitize('q6887124C    '));
         $this->assertEquals('Q6887124C', $this->identity->sanitize('000q6887124C    '));
-
-
     }
 
     public function test_valid_cif()
@@ -51,7 +48,6 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($this->identity->isValidCif(''));
         $this->assertFalse($this->identity->isValidCif('AAAAAAAAAAAAAAA'));
         $this->assertFalse($this->identity->isValidCif(null));
-
     }
 
     public function test_valid_nif()
