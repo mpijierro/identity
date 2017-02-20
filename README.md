@@ -35,3 +35,10 @@ Identity::isValidNie('1234foo');
 ```
 
 methods returns true or false
+
+
+## Thanks
+
+The original code is in next link
+
+http://www.michublog.com/informatica/8-funciones-para-la-validacion-de-formularios-con-expresiones-regulares

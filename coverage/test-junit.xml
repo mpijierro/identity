@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="Identity" tests="6" assertions="21" errors="0" failures="1" skipped="0" time="0.001359">
+    <testsuite name="Identity" tests="7" assertions="27" errors="0" failures="0" skipped="0" time="0.001864">
         <testsuite name="MPijierro\Identity\tests\IdentityTest" file="/var/www/html/identity/tests/IdentityTest.php"
-                   tests="6" assertions="21" errors="0" failures="1" skipped="0" time="0.001359">
+                   tests="7" assertions="27" errors="0" failures="0" skipped="0" time="0.001864">
+            <testcase name="test_sanitize" class="MPijierro\Identity\tests\IdentityTest"
+                      file="/var/www/html/identity/tests/IdentityTest.php" line="28" assertions="3" time="0.001153"/>
             <testcase name="test_valid_cif" class="MPijierro\Identity\tests\IdentityTest"
-                      file="/var/www/html/identity/tests/IdentityTest.php" line="26" assertions="2" time="0.000843"/>
+                      file="/var/www/html/identity/tests/IdentityTest.php" line="37" assertions="3" time="0.000256"/>
             <testcase name="test_invalid_cif" class="MPijierro\Identity\tests\IdentityTest"
-                      file="/var/www/html/identity/tests/IdentityTest.php" line="31" assertions="6" time="0.000155"/>
+                      file="/var/www/html/identity/tests/IdentityTest.php" line="44" assertions="6" time="0.000145"/>
             <testcase name="test_valid_nif" class="MPijierro\Identity\tests\IdentityTest"
-                      file="/var/www/html/identity/tests/IdentityTest.php" line="42" assertions="2" time="0.000068"/>
+                      file="/var/www/html/identity/tests/IdentityTest.php" line="55" assertions="3" time="0.000085"/>
             <testcase name="test_invalid_nif" class="MPijierro\Identity\tests\IdentityTest"
-                      file="/var/www/html/identity/tests/IdentityTest.php" line="47" assertions="5" time="0.000067"/>
+                      file="/var/www/html/identity/tests/IdentityTest.php" line="62" assertions="5" time="0.000087"/>
             <testcase name="test_valid_nie" class="MPijierro\Identity\tests\IdentityTest"
-                      file="/var/www/html/identity/tests/IdentityTest.php" line="55" assertions="1" time="0.000167">
-                <failure type="PHPUnit\Framework\ExpectationFailedException">
-                    MPijierro\Identity\tests\IdentityTest::test_valid_nie
-                    Failed asserting that false is true.
-
-                    /var/www/html/identity/tests/IdentityTest.php:56
-                </failure>
-            </testcase>
+                      file="/var/www/html/identity/tests/IdentityTest.php" line="71" assertions="2" time="0.000081"/>
             <testcase name="test_invalid_nie" class="MPijierro\Identity\tests\IdentityTest"
-                      file="/var/www/html/identity/tests/IdentityTest.php" line="60" assertions="5" time="0.000059"/>
+                      file="/var/www/html/identity/tests/IdentityTest.php" line="76" assertions="5" time="0.000057"/>
         </testsuite>
     </testsuite>
 </testsuites>

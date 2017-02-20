@@ -12,9 +12,31 @@ namespace MPijierro\Identity;
 class Identity
 {
 
-    public function isValidNie($nie)
+    public function isValidNie($nif)
     {
-        return $this->isValidCif($nie);
+        $nif = $this->sanitize($nif);
+
+        $nifRegEx = '/^[0-9]{8}[A-Z]$/i';
+        $nieRegEx = '/^[KLMXYZ][0-9]{7}[A-Z]$/i';
+        $letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+
+        if (preg_match($nifRegEx, $nif)) {
+            return ($letras[(substr($nif, 0, 8) % 23)] == $nif[8]);
+        } else {
+            if (preg_match($nieRegEx, $nif)) {
+                /**
+                 * Los NIE's de extranjeros residentes en España tienen una letra (X, Y, Z), 7 números y dígito de control.
+                 * Para el cálculo del dígito de control se sustituye:
+                 * X =0
+                 * Y =1
+                 * Z = 2 y se aplica el mismo algoritmo que para el NIF.*/
+                $r = str_replace(['X', 'Y', 'Z'], [0, 1, 2], $nif);
+
+                return ($letras[(substr($r, 0, 8) % 23)] == $nif[8]);
+            }
+
+            return false;
+        }
     }
 
 
@@ -52,6 +74,7 @@ class Identity
         }
     }
 
+
     public function isValidCif($cif)
     {
 
@@ -80,7 +103,7 @@ class Identity
                 }
             }
 
-            $suma_C = (intval($suma_A + $suma_B)) . "";
+            $suma_C = (intval($suma_A + $suma_B))."";
             $suma_D = (10 - intval($suma_C[strlen($suma_C) - 1])) % 10;
 
             $letras = "JABCDEFGHI";
