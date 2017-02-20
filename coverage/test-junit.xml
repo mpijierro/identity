@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="Identity" tests="6" assertions="21" errors="0" failures="1" skipped="0" time="0.001359">
+        <testsuite name="MPijierro\Identity\tests\IdentityTest" file="/var/www/html/identity/tests/IdentityTest.php"
+                   tests="6" assertions="21" errors="0" failures="1" skipped="0" time="0.001359">
+            <testcase name="test_valid_cif" class="MPijierro\Identity\tests\IdentityTest"
+                      file="/var/www/html/identity/tests/IdentityTest.php" line="26" assertions="2" time="0.000843"/>
+            <testcase name="test_invalid_cif" class="MPijierro\Identity\tests\IdentityTest"
+                      file="/var/www/html/identity/tests/IdentityTest.php" line="31" assertions="6" time="0.000155"/>
+            <testcase name="test_valid_nif" class="MPijierro\Identity\tests\IdentityTest"
+                      file="/var/www/html/identity/tests/IdentityTest.php" line="42" assertions="2" time="0.000068"/>
+            <testcase name="test_invalid_nif" class="MPijierro\Identity\tests\IdentityTest"
+                      file="/var/www/html/identity/tests/IdentityTest.php" line="47" assertions="5" time="0.000067"/>
+            <testcase name="test_valid_nie" class="MPijierro\Identity\tests\IdentityTest"
+                      file="/var/www/html/identity/tests/IdentityTest.php" line="55" assertions="1" time="0.000167">
+                <failure type="PHPUnit\Framework\ExpectationFailedException">
+                    MPijierro\Identity\tests\IdentityTest::test_valid_nie
+                    Failed asserting that false is true.
+
+                    /var/www/html/identity/tests/IdentityTest.php:56
+                </failure>
+            </testcase>
+            <testcase name="test_invalid_nie" class="MPijierro\Identity\tests\IdentityTest"
+                      file="/var/www/html/identity/tests/IdentityTest.php" line="60" assertions="5" time="0.000059"/>
+        </testsuite>
+    </testsuite>
+</testsuites>

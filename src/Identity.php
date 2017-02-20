@@ -11,9 +11,10 @@ namespace MPijierro\Identity;
 
 class Identity
 {
-    public function isValidNie($nif)
+
+    public function isValidNie($nie)
     {
-        return $this->isValidCif($nif);
+        return $this->isValidCif($nie);
     }
 
 
