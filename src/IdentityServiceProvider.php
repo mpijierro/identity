@@ -16,6 +16,16 @@ class IdentityServiceProvider extends ServiceProvider
     public function boot()
     {
 
+        $this->addRules();
+
+        $this->addMessages();
+
+    }
+
+
+    private function addRules()
+    {
+
         Validator::extend('nif', function ($attribute, $value, $parameters, $validator) {
             $identity = new \MPijierro\Identity\Identity();
 
@@ -33,17 +43,6 @@ class IdentityServiceProvider extends ServiceProvider
 
             return $identity->isValidNie($value);
         });
-
-    }
-
-
-    private function addRules()
-    {
-
-        $this->addRules();
-
-        $this->addMessages();
-
     }
 
 
