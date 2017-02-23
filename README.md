@@ -9,8 +9,6 @@ Require this package with composer:
 ```shell
 composer require mpijierro/identity
 ```
-After updating composer, add the ServiceProvider to the providers array in config/app.php
-> If you use a catch-all/fallback route, make sure you load the Debugbar ServiceProvider before your own App ServiceProviders.
 
 ### Laravel 5.x:
 
@@ -35,6 +33,23 @@ Identity::isValidNie('1234foo');
 ```
 
 methods returns true or false
+
+
+It is also possible to use **validation rules**:
+
+```php
+'nif_field' => 'nif'
+
+'cif_field' => 'cif'
+
+'nie_field' => 'nie'
+
+```
+If error ocurred, error message will be:
+```php
+ "The $attribute field is not a valid NIF.";
+```
+
 
 
 ## Thanks
