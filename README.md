@@ -10,6 +10,11 @@ Require this package with composer:
 composer require mpijierro/identity
 ```
 
+or in the require section of your composer.json
+```php
+"mpijierro/identity": "dev-master"
+```
+
 ### Laravel 5.x:
 
 ```php
