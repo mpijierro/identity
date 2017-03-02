@@ -86,9 +86,23 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
 
     public function test_valid_iban()
     {
+        $this->assertTrue($this->identity->isValidIban('ES9100490013112991609374'));
+        $this->assertTrue($this->identity->isValidIban('ES09 2038-0626-0160-0002-5280'));
+        $this->assertTrue($this->identity->isValidIban('ES 58 0075 0204 9406 0081 1004'));
+        $this->assertTrue($this->identity->isValidIban('ES98 – 3190 – 0974 – 34 - 4255071823'));
+        $this->assertTrue($this->identity->isValidIban('ES31-2080-5155-9730-4000-0250'));
+        $this->assertTrue($this->identity->isValidIban('ES94 2095 5381 1910 6117 3539'));
+    }
 
-        $this->assertTrue($this->identity->comprobar_iban('ES9100490013112991609374'));
 
+    public function test_invalid_iban()
+    {
+
+        $this->assertFalse($this->identity->isValidIban('ES9100490013112991609374a'));
+        $this->assertFalse($this->identity->isValidIban('9100490013112991609374a'));
+        $this->assertFalse($this->identity->isValidIban('9100490013112991609374a'));
+        $this->assertFalse($this->identity->isValidIban(''));
+        $this->assertFalse($this->identity->isValidIban(null));
 
     }
 

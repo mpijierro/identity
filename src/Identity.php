@@ -114,6 +114,18 @@ class Identity
     }
 
 
+    public function isValidIban($ibanToCheck)
+    {
+
+        $sanitizeIban = $this->sanitize($ibanToCheck);
+
+        $iban = new \IBAN();
+
+        return $iban->Verify($sanitizeIban);
+
+
+    }
+
     public function sanitize($documentId)
     {
         $sanitizeDocumentId = trim($documentId);
