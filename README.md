@@ -1,6 +1,6 @@
 # Identity for Laravel 5.1
 
-Check valid spanish document id as NIF, CIF y NIE
+Check valid spanish document id as NIF, CIF, NIE and IBAN back account. 
 
 ## Installation
 
@@ -30,6 +30,7 @@ You can now check document ide using the Facade (when added)
 Identity::isValidCif('1234foo');
 Identity::isValidNif('1234foo');
 Identity::isValidNie('1234foo');
+Identity::isValidIban('1234foo');
 ```
 
 methods returns true or false
@@ -44,16 +45,22 @@ It is also possible to use **validation rules**:
 
 'nie_field' => 'nie'
 
+'iban_field' => 'iban'
+
 ```
 If error ocurred, error message will be:
 ```php
- "The $attribute field is not a valid NIF.";
+ "The $foo_attribute field is not a valid Foo.";
 ```
 
 
 
 ## Thanks
 
-The original code is in next link
+The original code for NIF, CIF AND NIE is in next link
 
 http://www.michublog.com/informatica/8-funciones-para-la-validacion-de-formularios-con-expresiones-regulares
+
+Thanks to original code of: globalcitizen/php-iban
+ 
+ https://github.com/globalcitizen/php-iban
