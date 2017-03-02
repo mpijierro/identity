@@ -43,6 +43,12 @@ class IdentityServiceProvider extends ServiceProvider
 
             return $identity->isValidNie($value);
         });
+
+        Validator::extend('iban', function ($attribute, $value, $parameters, $validator) {
+            $identity = new \MPijierro\Identity\Identity();
+
+            return $identity->isValidIban($value);
+        });
     }
 
 
@@ -64,6 +70,12 @@ class IdentityServiceProvider extends ServiceProvider
         Validator::replacer('nie', function ($message, $attribute, $rule, $parameters) {
 
             return "The $attribute field is not a valid NIE.";
+
+        });
+
+        Validator::replacer('iban', function ($message, $attribute, $rule, $parameters) {
+
+            return "The $attribute field is not a valid IBAN.";
 
         });
 
