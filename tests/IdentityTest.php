@@ -83,4 +83,13 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($this->identity->isValidNie(null));
     }
 
+
+    public function test_valid_iban()
+    {
+
+        $this->assertTrue($this->identity->comprobar_iban('ES9100490013112991609374'));
+
+
+    }
+
 }

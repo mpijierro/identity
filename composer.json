@@ -10,7 +10,9 @@
     }
   ],
   "minimum-stability": "dev",
-  "require": {},
+  "require": {
+    "globalcitizen/php-iban": "^2.5"
+  },
   "autoload": {
     "psr-4": {
       "MPijierro\\Identity\\": "src/"
