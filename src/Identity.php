@@ -129,7 +129,6 @@ class Identity
     public function sanitize($documentId)
     {
         $sanitizeDocumentId = trim($documentId);
-        $sanitizeDocumentId = ltrim($sanitizeDocumentId, '0');
         $sanitizeDocumentId = strtoupper($sanitizeDocumentId);
 
         return preg_replace("/[^A-Za-z0-9]/", "", $sanitizeDocumentId);

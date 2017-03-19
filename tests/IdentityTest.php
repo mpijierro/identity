@@ -30,7 +30,7 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertEquals('Q6887124C', $this->identity->sanitize('q6887124c'));
         $this->assertEquals('Q6887124C', $this->identity->sanitize('q6887124C    '));
-        $this->assertEquals('Q6887124C', $this->identity->sanitize('000q6887124C    '));
+        $this->assertEquals('000Q6887124C', $this->identity->sanitize('000q6887124C    '));
     }
 
     public function test_valid_cif()
@@ -38,6 +38,7 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($this->identity->isValidCif('Q6887124C'));
         $this->assertTrue($this->identity->isValidCif('J51062271'));
         $this->assertTrue($this->identity->isValidCif('D9990690A'));
+        $this->assertTrue($this->identity->isValidCif('N8796829C'));
     }
 
     public function test_invalid_cif()
@@ -55,6 +56,7 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($this->identity->isValidNif('21361012S'));
         $this->assertTrue($this->identity->isValidNif('64160547T'));
         $this->assertTrue($this->identity->isValidNif('48692083W'));
+        $this->assertTrue($this->identity->isValidNif('08861617Q'));
     }
 
     public function test_invalid_nif()
@@ -62,6 +64,7 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($this->identity->isValidNif('21361012'));
         $this->assertFalse($this->identity->isValidNif('1361012S'));
         $this->assertFalse($this->identity->isValidNif('12345678F'));
+        $this->assertFalse($this->identity->isValidNif('008861617Q'));
         $this->assertFalse($this->identity->isValidNif(''));
         $this->assertFalse($this->identity->isValidNif(null));
     }
