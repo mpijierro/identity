@@ -126,6 +126,17 @@ class Identity
 
     }
 
+
+    public function documentIsValid($documentId)
+    {
+
+        $documentClean = $this->sanitize($documentId);
+
+        return ($this->isValidCif($documentClean) OR $this->isValidNif($documentClean) OR ($this->isValidNie($documentClean)));
+
+    }
+
+
     public function sanitize($documentId)
     {
         $sanitizeDocumentId = trim($documentId);

@@ -87,6 +87,19 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
     }
 
 
+    public function test_document_is_any_valid()
+    {
+
+        $this->assertTrue($this->identity->documentIsValid('21361012S'));
+        $this->assertTrue($this->identity->documentIsValid('21361012S'));
+        $this->assertTrue($this->identity->documentIsValid('X3212050P'));
+        $this->assertFalse($this->identity->documentIsValid('Q6887124'));
+        $this->assertFalse($this->identity->documentIsValid('21361012'));
+        $this->assertFalse($this->identity->documentIsValid('Z893999Q'));
+
+    }
+
+
     public function test_valid_iban()
     {
         $this->assertTrue($this->identity->isValidIban('ES9100490013112991609374'));
