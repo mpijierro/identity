@@ -9,7 +9,7 @@
       "email": "mpijierro@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "require": {
     "globalcitizen/php-iban": "^2.5"
   },
