@@ -6,11 +6,7 @@ Check valid spanish document id as NIF, CIF, NIE and IBAN back account.
 
 Require this package with composer:
 
-```shell
-composer require mpijierro/identity
-```
-
-or in the require section of your composer.json
+Add in the require section of your composer.json
 ```php
 "mpijierro/identity": "dev-master"
 ```
