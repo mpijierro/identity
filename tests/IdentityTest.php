@@ -48,6 +48,7 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($this->identity->isValidCif('6887123C'));
         $this->assertFalse($this->identity->isValidCif(''));
         $this->assertFalse($this->identity->isValidCif('AAAAAAAAAAAAAAA'));
+        $this->assertFalse($this->identity->isValidCif('Q6887|124C'));
         $this->assertFalse($this->identity->isValidCif(null));
     }
 
@@ -67,6 +68,9 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($this->identity->isValidNif('008861617Q'));
         $this->assertFalse($this->identity->isValidNif(''));
         $this->assertFalse($this->identity->isValidNif(null));
+
+        $this->assertTrue($this->identity->isValidNif('08861617Q'));
+        $this->assertFalse($this->identity->isValidNif('08861|617Q'));
     }
 
 
@@ -84,6 +88,9 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($this->identity->isValidNie('Z893999Q'));
         $this->assertFalse($this->identity->isValidNie(''));
         $this->assertFalse($this->identity->isValidNie(null));
+
+        $this->assertTrue($this->identity->isValidNie('X3212050P'));
+        $this->assertFalse($this->identity->isValidNie('X321|2050P'));
     }
 
 
@@ -108,6 +115,7 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($this->identity->isValidIban('ES98 – 3190 – 0974 – 34 - 4255071823'));
         $this->assertTrue($this->identity->isValidIban('ES31-2080-5155-9730-4000-0250'));
         $this->assertTrue($this->identity->isValidIban('ES94 2095 5381 1910 6117 3539'));
+
     }
 
 
@@ -119,6 +127,9 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($this->identity->isValidIban('9100490013112991609374a'));
         $this->assertFalse($this->identity->isValidIban(''));
         $this->assertFalse($this->identity->isValidIban(null));
+
+        $this->assertTrue($this->identity->isValidIban('ES94 2095 5381 1910 6117 3539'));
+        $this->assertFalse($this->identity->isValidIban('ES94 2095 53|1 1910 6117 3539'));
 
     }
 

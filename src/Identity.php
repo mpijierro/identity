@@ -14,8 +14,6 @@ class Identity
 
     public function isValidNie($nif)
     {
-        $nif = $this->sanitize($nif);
-
         $nifRegEx = '/^[0-9]{8}[A-Z]$/i';
         $nieRegEx = '/^[KLMXYZ][0-9]{7}[A-Z]$/i';
         $letras = "TRWAGMYFPDXBNJZSQVHLCKE";
@@ -37,9 +35,6 @@ class Identity
 
     public function isValidNif($nif)
     {
-
-        $nif = $this->sanitize($nif);
-
         $nifRegEx = '/^[0-9]{8}[A-Z]$/i';
         $nieRegEx = '/^[XYZ][0-9]{7}[A-Z]$/i';
 
@@ -72,8 +67,6 @@ class Identity
 
     public function isValidCif($cif)
     {
-
-        $cif = $this->sanitize($cif);
 
         $cifRegEx1 = '/^[ABEH][0-9]{8}$/i';
         $cifRegEx2 = '/^[KPQS][0-9]{7}[A-J]$/i';
@@ -114,15 +107,13 @@ class Identity
     }
 
 
-    public function isValidIban($ibanToCheck)
+    public function isValidIban($aIbanNumber
+    )
     {
-
-        $sanitizeIban = $this->sanitize($ibanToCheck);
 
         $iban = new \IBAN();
 
-        return $iban->Verify($sanitizeIban);
-
+        return $iban->Verify($aIbanNumber);
 
     }
 
@@ -130,9 +121,7 @@ class Identity
     public function documentIsValid($documentId)
     {
 
-        $documentClean = $this->sanitize($documentId);
-
-        return ($this->isValidCif($documentClean) OR $this->isValidNif($documentClean) OR ($this->isValidNie($documentClean)));
+        return ($this->isValidCif($documentId) OR $this->isValidNif($documentId) OR ($this->isValidNie($documentId)));
 
     }
 
