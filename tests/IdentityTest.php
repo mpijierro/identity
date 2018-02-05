@@ -71,6 +71,8 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
 
         $this->assertTrue($this->identity->isValidNif('08861617Q'));
         $this->assertFalse($this->identity->isValidNif('08861|617Q'));
+
+        $this->assertFalse($this->identity->isValidNif('X3212050P')); //nie
     }
 
 
@@ -91,6 +93,7 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
 
         $this->assertTrue($this->identity->isValidNie('X3212050P'));
         $this->assertFalse($this->identity->isValidNie('X321|2050P'));
+        $this->assertFalse($this->identity->isValidNie('08861617Q')); //nif
     }
 
 

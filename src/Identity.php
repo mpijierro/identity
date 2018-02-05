@@ -11,59 +11,21 @@ namespace MPijierro\Identity;
 
 class Identity
 {
-
-    public function isValidNie($nif)
+    public function isValidIban($aIbanNumber)
     {
-        $nifRegEx = '/^[0-9]{8}[A-Z]$/i';
-        $nieRegEx = '/^[KLMXYZ][0-9]{7}[A-Z]$/i';
-        $letras = "TRWAGMYFPDXBNJZSQVHLCKE";
 
-        if (preg_match($nifRegEx, $nif)) {
-            return ($letras[(substr($nif, 0, 8) % 23)] == $nif[8]);
-        } else {
-            if (preg_match($nieRegEx, $nif)) {
+        $iban = new \IBAN();
 
-                $r = str_replace(['X', 'Y', 'Z'], [0, 1, 2], $nif);
+        return $iban->Verify($aIbanNumber);
 
-                return ($letras[(substr($r, 0, 8) % 23)] == $nif[8]);
-            }
-
-            return false;
-        }
     }
 
-
-    public function isValidNif($nif)
+    public function documentIsValid($documentId)
     {
-        $nifRegEx = '/^[0-9]{8}[A-Z]$/i';
-        $nieRegEx = '/^[XYZ][0-9]{7}[A-Z]$/i';
 
-        $letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+        return ($this->isValidCif($documentId) OR $this->isValidNif($documentId) OR ($this->isValidNie($documentId)));
 
-        if (preg_match($nifRegEx, $nif)) {
-            return ($letras[(substr($nif, 0, 8) % 23)] == $nif[8]);
-        } else {
-            if (preg_match($nieRegEx, $nif)) {
-                if ($nif[0] == "X") {
-                    $nif[0] = "0";
-                } else {
-                    if ($nif[0] == "Y") {
-                        $nif[0] = "1";
-                    } else {
-                        if ($nif[0] == "Z") {
-                            $nif[0] = "2";
-                        }
-                    }
-                }
-
-                return ($letras[(substr($nif, 0, 8) % 23)] == $nif[8]);
-            }
-
-            return false;
-
-        }
     }
-
 
     public function isValidCif($cif)
     {
@@ -106,25 +68,34 @@ class Identity
         return false;
     }
 
-
-    public function isValidIban($aIbanNumber
-    )
+    public function isValidNif($nif)
     {
+        $nifRegEx = '/^[0-9]{8}[A-Z]$/i';
 
-        $iban = new \IBAN();
+        $letras = "TRWAGMYFPDXBNJZSQVHLCKE";
 
-        return $iban->Verify($aIbanNumber);
+        if (preg_match($nifRegEx, $nif)) {
+            return ($letras[(substr($nif, 0, 8) % 23)] == $nif[8]);
+        }
 
+        return false;
     }
 
-
-    public function documentIsValid($documentId)
+    public function isValidNie($nif)
     {
+        $nieRegEx = '/^[KLMXYZ][0-9]{7}[A-Z]$/i';
+        $letras = "TRWAGMYFPDXBNJZSQVHLCKE";
 
-        return ($this->isValidCif($documentId) OR $this->isValidNif($documentId) OR ($this->isValidNie($documentId)));
+        if (preg_match($nieRegEx, $nif)) {
+
+            $r = str_replace(['X', 'Y', 'Z'], [0, 1, 2], $nif);
+
+            return ($letras[(substr($r, 0, 8) % 23)] == $nif[8]);
+        }
+
+        return false;
 
     }
-
 
     public function sanitize($documentId)
     {
@@ -133,5 +104,4 @@ class Identity
 
         return preg_replace("/[^A-Za-z0-9]/", "", $sanitizeDocumentId);
     }
-
 }
