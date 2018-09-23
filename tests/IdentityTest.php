@@ -136,4 +136,17 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
 
     }
 
+    public function test_invalid_nnss()
+    {
+
+        $this->assertFalse($this->identity->isValidNNSS('107819249351rtrtr'));
+        $this->assertFalse($this->identity->isValidNNSS(''));
+        $this->assertFalse($this->identity->isValidNNSS(null));
+
+        $this->assertTrue($this->identity->isValidNNSS('426999252649'));
+
+    }
+
+
+
 }

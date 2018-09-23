@@ -49,6 +49,12 @@ class IdentityServiceProvider extends ServiceProvider
 
             return $identity->isValidIban($value);
         });
+
+        Validator::extend('nnss', function ($attribute, $value, $parameters, $validator) {
+            $identity = new \MPijierro\Identity\Identity();
+
+            return $identity->isValidNNSS($value);
+        });
     }
 
 
@@ -76,6 +82,12 @@ class IdentityServiceProvider extends ServiceProvider
         Validator::replacer('iban', function ($message, $attribute, $rule, $parameters) {
 
             return "The $attribute field is not a valid IBAN.";
+
+        });
+
+        Validator::replacer('nnss', function ($message, $attribute, $rule, $parameters) {
+
+            return "The $attribute field is not a valid Social Security  Number.";
 
         });
 
