@@ -32,6 +32,7 @@ Identity::isValidCif('1234foo');
 Identity::isValidNif('1234foo');
 Identity::isValidNie('1234foo');
 Identity::isValidIban('1234foo');
+Identity::isValidNNSS('1234foo');
 ```
 
 methods returns true or false
@@ -47,6 +48,8 @@ It is also possible to use **validation rules**:
 'nie_field' => 'nie'
 
 'iban_field' => 'iban'
+
+'nnss_field' => 'nnss'
 
 ```
 If error ocurred, error message will be:
@@ -65,3 +68,7 @@ http://www.michublog.com/informatica/8-funciones-para-la-validacion-de-formulari
 Thanks to original code of: globalcitizen/php-iban
  
  https://github.com/globalcitizen/php-iban
+ 
+ Thanks to original code for the validation of the NNSS of: http://intervia.com
+ 
+ http://intervia.com/doc/validar-numeros-de-la-seguridad-social/
