@@ -97,6 +97,39 @@ class Identity
 
     }
 
+    public function isValidNNSS($SSNumber)
+    {
+        $SSNumberRegEx = '/^[0-9]{12}$/i';
+
+        if (preg_match($SSNumberRegEx, $SSNumber)) {
+
+            $na = substr($SSNumber, 0, 2);
+            $nb = substr($SSNumber, 2, 8);
+            $nc = substr($SSNumber, 10, 2);
+
+            if($na && $nb && $nc) {
+
+                if ($nb < 10000000){
+
+                    $nd = $nb+$na*10000000;
+
+                } else{
+
+                    $nd = $na.$nb;
+
+                }
+                $validacion = $nd % 97;
+
+                if ($validacion == $nc) {
+
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     public function sanitize($documentId)
     {
         $sanitizeDocumentId = trim($documentId);
