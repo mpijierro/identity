@@ -152,7 +152,7 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($this->identity->isValidNNSS(null));
 
         $this->assertTrue($this->identity->isValidNNSS('426999252649'));
-        $this->assertFalse($this->identity->isValidNNSS('426999252649'));
+        $this->assertFalse($this->identity->isValidNNSS('426999II252649'));
 
     }
 
