@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: mpijierro
- * Date: 18/02/17
- * Time: 13:43
- */
-
 namespace MPijierro\Identity;
 
 class Identity
