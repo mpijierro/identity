@@ -23,6 +23,9 @@ If you want to use the facade, add this to your facades in app.php:
 'Identity' => MPijierro\Identity\Facades\Identity::class,
 ```
 
+
+Note: Branch 1.1 has a modification in which the default error messages have been removed. If you use this branch, you must add the validation messages you want to your language file.
+
 ## Usage
 
 You can now check document ide using the Facade (when added)
