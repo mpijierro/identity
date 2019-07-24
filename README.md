@@ -11,6 +11,15 @@ Add in the require section of your composer.json
 "mpijierro/identity": "dev-master"
 ```
 
+
+
+Branch **1.1.0** has a modification in which the default error messages have been removed. The dev-master branch remains unchanged for compatibility. 
+If you use the branch 1.1.0., you must add the validation messages you want to your language file. 
+To install it, add in the composer.json
+```php
+"mpijierro/identity": "1.1.0"
+```
+
 ### Laravel 5.x:
 
 ```php
@@ -59,7 +68,6 @@ If error ocurred, error message will be:
 ```php
  "The $foo_attribute field is not a valid Foo.";
 ```
-
 
 
 ## Thanks
