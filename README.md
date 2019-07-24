@@ -55,10 +55,9 @@ It is also possible to use **validation rules**:
 'nnss_field' => 'nnss'
 
 ```
-If error ocurred, error message will be:
-```php
- "The $foo_attribute field is not a valid Foo.";
-```
+Error message:
+
+In this version, the default messages have been removed, so you must add your own validation messages.
 
 
 

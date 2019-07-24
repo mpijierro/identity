@@ -18,8 +18,6 @@ class IdentityServiceProvider extends ServiceProvider
 
         $this->addRules();
 
-        $this->addMessages();
-
     }
 
 
@@ -55,42 +53,6 @@ class IdentityServiceProvider extends ServiceProvider
 
             return $identity->isValidNNSS($value);
         });
-    }
-
-
-    private function addMessages()
-    {
-        Validator::replacer('nif', function ($message, $attribute, $rule, $parameters) {
-
-            return "The $attribute field is not a valid NIF.";
-
-        });
-
-        Validator::replacer('cif', function ($message, $attribute, $rule, $parameters) {
-
-            return "The $attribute field is not a valid CIF.";
-
-
-        });
-
-        Validator::replacer('nie', function ($message, $attribute, $rule, $parameters) {
-
-            return "The $attribute field is not a valid NIE.";
-
-        });
-
-        Validator::replacer('iban', function ($message, $attribute, $rule, $parameters) {
-
-            return "The $attribute field is not a valid IBAN.";
-
-        });
-
-        Validator::replacer('nnss', function ($message, $attribute, $rule, $parameters) {
-
-            return "The $attribute field is not a valid Social Security  Number.";
-
-        });
-
     }
 
     /**
