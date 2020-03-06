@@ -5,7 +5,6 @@ namespace MPijierro\Identity;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
-use MPijierro\Identity\Identity;
 
 class IdentityServiceProvider extends ServiceProvider implements DeferrableProvider
 {
@@ -17,6 +16,10 @@ class IdentityServiceProvider extends ServiceProvider implements DeferrableProvi
      */
     public function register()
     {
+        $this->configure(
+            'identity',
+            __DIR__ . '/resources/config.php'
+        );
         $this->app->bind(Identity::class, function () {
             return new Identity();
         });
@@ -35,7 +38,6 @@ class IdentityServiceProvider extends ServiceProvider implements DeferrableProvi
     {
         $this->addRules();
         $this->addMessages();
-
     }
 
     /**
@@ -45,29 +47,28 @@ class IdentityServiceProvider extends ServiceProvider implements DeferrableProvi
      */
     private function addRules(): void
     {
-
         Validator::extend('nif', function ($attribute, $value, $parameters, $validator) {
-            $identity = new \MPijierro\Identity\Identity();
+            $identity = new Identity();
             return $identity->isValidNif($value);
         });
 
         Validator::extend('cif', function ($attribute, $value, $parameters, $validator) {
-            $identity = new \MPijierro\Identity\Identity();
+            $identity = new Identity();
             return $identity->isValidCif($value);
         });
 
         Validator::extend('nie', function ($attribute, $value, $parameters, $validator) {
-            $identity = new \MPijierro\Identity\Identity();
+            $identity = new Identity();
             return $identity->isValidNie($value);
         });
 
         Validator::extend('iban', function ($attribute, $value, $parameters, $validator) {
-            $identity = new \MPijierro\Identity\Identity();
+            $identity = new Identity();
             return $identity->isValidIban($value);
         });
 
         Validator::extend('nnss', function ($attribute, $value, $parameters, $validator) {
-            $identity = new \MPijierro\Identity\Identity();
+            $identity = new Identity();
             return $identity->isValidNNSS($value);
         });
     }
@@ -79,6 +80,9 @@ class IdentityServiceProvider extends ServiceProvider implements DeferrableProvi
      */
     private function addMessages(): void
     {
+        if (! $this->app->make('config')->get('identity.messages')) {
+            return;
+        }
         Validator::replacer('nif', function ($message, $attribute, $rule, $parameters) {
             return "The $attribute field is not a valid NIF.";
         });
