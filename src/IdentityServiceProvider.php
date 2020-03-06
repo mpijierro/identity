@@ -5,6 +5,7 @@ namespace MPijierro\Identity;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Translation\Translator;
 
 class IdentityServiceProvider extends ServiceProvider implements DeferrableProvider
 {
@@ -16,9 +17,9 @@ class IdentityServiceProvider extends ServiceProvider implements DeferrableProvi
      */
     public function register()
     {
-        $this->configure(
-            'identity',
-            __DIR__ . '/resources/config.php'
+        $this->mergeConfigFrom(
+            __DIR__ . '/resources/config.php',
+            'identity'
         );
         $this->app->bind(Identity::class, function () {
             return new Identity();
@@ -83,24 +84,28 @@ class IdentityServiceProvider extends ServiceProvider implements DeferrableProvi
         if (! $this->app->make('config')->get('identity.messages')) {
             return;
         }
+        $this->app->make(Translator::class)
+                ->getLoader()
+                ->addJsonPath(__DIR__ . '/resources/lang');
+        
         Validator::replacer('nif', function ($message, $attribute, $rule, $parameters) {
-            return "The $attribute field is not a valid NIF.";
+            return __('identify.validation.nif', ['attribute' => $attribute]);
         });
 
         Validator::replacer('cif', function ($message, $attribute, $rule, $parameters) {
-            return "The $attribute field is not a valid CIF.";
+            return __('identify.validation.cif', ['attribute' => $attribute]);
         });
 
         Validator::replacer('nie', function ($message, $attribute, $rule, $parameters) {
-            return "The $attribute field is not a valid NIE.";
+            return __('identify.validation.nie', ['attribute' => $attribute]);
         });
 
         Validator::replacer('iban', function ($message, $attribute, $rule, $parameters) {
-            return "The $attribute field is not a valid IBAN.";
+            return __('identify.validation.iban', ['attribute' => $attribute]);
         });
 
         Validator::replacer('nnss', function ($message, $attribute, $rule, $parameters) {
-            return "The $attribute field is not a valid Social Security  Number.";
+            return __('identify.validation.nnss', ['attribute' => $attribute]);
         });
 
     }

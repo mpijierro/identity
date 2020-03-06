@@ -1,0 +1,7 @@
+{
+    "identify.validation.nif": "The :attribute field is not a valid NIF.",
+    "identify.validation.cif": "The :attribute field is not a valid CIF.",
+    "identify.validation.nie": "The :attribute field is not a valid NIE.",
+    "identify.validation.iban": "The :attribute field is not a valid IBAN.",
+    "identify.validation.nnss": "The :attribute field is not a valid Social Security Number."
+}
