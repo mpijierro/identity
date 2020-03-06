@@ -1,4 +1,4 @@
-# Identity for Laravel 5.1
+# Identity for Laravel/Lumen ^5.1|6.X
 
 Check valid spanish document id as NIF, CIF, NIE and IBAN back account. 
 
@@ -7,20 +7,12 @@ Check valid spanish document id as NIF, CIF, NIE and IBAN back account.
 Require this package with composer:
 
 Add in the require section of your composer.json
-```php
-"mpijierro/identity": "dev-master"
+```
+composer require mpijierro/identity
 ```
 
 
-
-Branch **1.1.0** has a modification in which the default error messages have been removed. The dev-master branch remains unchanged for compatibility. 
-If you use the branch 1.1.0., you must add the validation messages you want to your language file. 
-To install it, add in the composer.json
-```php
-"mpijierro/identity": "1.1.0"
-```
-
-### Laravel 5.x:
+### Laravel/Lumen
 
 ```php
 \MPijierro\Identity\IdentityServiceProvider::class,
