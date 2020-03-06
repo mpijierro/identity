@@ -89,23 +89,23 @@ class IdentityServiceProvider extends ServiceProvider implements DeferrableProvi
                 ->addJsonPath(__DIR__ . '/resources/lang');
         
         Validator::replacer('nif', function ($message, $attribute, $rule, $parameters) {
-            return __('identify.validation.nif', ['attribute' => $attribute]);
+            return __('identity.validation.nif', ['attribute' => $attribute]);
         });
 
         Validator::replacer('cif', function ($message, $attribute, $rule, $parameters) {
-            return __('identify.validation.cif', ['attribute' => $attribute]);
+            return __('identity.validation.cif', ['attribute' => $attribute]);
         });
 
         Validator::replacer('nie', function ($message, $attribute, $rule, $parameters) {
-            return __('identify.validation.nie', ['attribute' => $attribute]);
+            return __('identity.validation.nie', ['attribute' => $attribute]);
         });
 
         Validator::replacer('iban', function ($message, $attribute, $rule, $parameters) {
-            return __('identify.validation.iban', ['attribute' => $attribute]);
+            return __('identity.validation.iban', ['attribute' => $attribute]);
         });
 
         Validator::replacer('nnss', function ($message, $attribute, $rule, $parameters) {
-            return __('identify.validation.nnss', ['attribute' => $attribute]);
+            return __('identity.validation.nnss', ['attribute' => $attribute]);
         });
 
     }
