@@ -1,6 +1,4 @@
-# Created by .ignore support plugin (hsz.mobi)
-### Laravel template
 vendor/
-
+nbproject/
 .idea/
 coverage/

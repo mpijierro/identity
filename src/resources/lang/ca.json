@@ -1,0 +1,7 @@
+{
+    "identity.validation.nif": "El camp :attribute no és un NIF vàlid.",
+    "identity.validation.cif": "El camp :attribute no és un CIF vàlid.",
+    "identity.validation.nie": "El camp :attribute no és un NIE vàlid.",
+    "identity.validation.iban": "El camp :attribute no és un IBAN vàlid.",
+    "identity.validation.nnss": "El camp :attribute no és un Número de Seguritat Social vàlid."
+}
