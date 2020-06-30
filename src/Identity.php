@@ -2,12 +2,14 @@
 
 namespace MPijierro\Identity;
 
+use PHP_IBAN\IBAN;
+
 class Identity
 {
     public function isValidIban($aIbanNumber)
     {
 
-        $iban = new \IBAN();
+        $iban = new IBAN();
 
         return $iban->Verify($aIbanNumber);
 
