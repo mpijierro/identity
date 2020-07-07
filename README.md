@@ -4,6 +4,10 @@ Check valid spanish document id as NIF, CIF, NIE and IBAN back account.
 
 ## Installation
 
+Laravel 5.8 or greather => master
+
+Laravel 5.1 to 5.7 => 1.1.0
+
 Require this package with composer:
 
 Add in the require section of your composer.json
